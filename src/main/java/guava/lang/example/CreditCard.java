@@ -57,4 +57,17 @@ public class CreditCard {
 	public int hashCode() {
 		return Objects.hashCode(getCardholderName(), getCvv2(), getExpirationDate(), getNumber());
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if(obj instanceof CreditCard){
+	        final CreditCard other = (CreditCard) obj;
+	        return Objects.equal(cardholderName, other.cardholderName)
+	            && Objects.equal(number, other.number)
+	            && Objects.equal(cvv2, other.cvv2)
+	            && Objects.equal(expirationDate, other.expirationDate);
+	    } else{
+	        return false;
+	    }
+	}
 }
